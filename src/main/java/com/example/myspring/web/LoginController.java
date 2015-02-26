@@ -17,11 +17,11 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value="/index.jsp")
+	@RequestMapping(value="/index.html")
 	public String loginPage(){
 		return "login";
 	}
-	
+	@RequestMapping(value="/loginCheck.html")
 	public ModelAndView loginCheck(HttpServletRequest request, LoginCommand loginCommand){
 		boolean isVaildUser = userService.hasMatchUser(loginCommand.getUserName(), loginCommand.getPassword());
 		if(!isVaildUser){
